@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c7402092d785049083287874f6f317a9",
+    "revision": "be07ad0f6f174239b14201dc526d3743",
     "url": "/smartBrainFaceRecognition/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/smartBrainFaceRecognition/static/css/2.3b6f1bda.chunk.css"
   },
   {
-    "revision": "547abfc6aab7e779f451",
-    "url": "/smartBrainFaceRecognition/static/css/main.e990d1e8.chunk.css"
+    "revision": "ee0912533a6b08d2a7c8",
+    "url": "/smartBrainFaceRecognition/static/css/main.5fe40e06.chunk.css"
   },
   {
     "revision": "71db9feb9bba2b51739f",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/smartBrainFaceRecognition/static/js/2.b6f41138.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "547abfc6aab7e779f451",
-    "url": "/smartBrainFaceRecognition/static/js/main.27eb786b.chunk.js"
+    "revision": "ee0912533a6b08d2a7c8",
+    "url": "/smartBrainFaceRecognition/static/js/main.f6853d09.chunk.js"
   },
   {
     "revision": "38307e43b6648ab6eaa0",
