@@ -150,8 +150,11 @@ class App extends Component {
         {(route === 'home') 
           ? 
           <div>
-            <Logo />
-            <Rank name={this.state.user.name} entries={this.state.user.entries}/>
+            <div className="flex">
+              <Logo />
+              <Rank name={this.state.user.name} entries={this.state.user.entries}/>
+              <Logo />
+            </div>
             <ImageLinkForm 
               onInputChange={this.onInputChange} 
               onImageSubmit={this.onImageSubmit}
