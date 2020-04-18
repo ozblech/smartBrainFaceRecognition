@@ -55,7 +55,7 @@ class App extends Component {
     this.state = {
       input:'',
       imgURL:'',
-      box:{},
+      boxArray:[],
       route: 'signin',
       isSignedIn: false,
       user: {
@@ -78,22 +78,26 @@ class App extends Component {
     }})
   }
 
+
   calculateFaceLocation = (data) => {
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputImage');
     const width = Number(image.width);
     const height = Number(image.height);
-    console.log(width, height);
-    return {
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height)
-    }
+    const regionsRes = data.outputs[0].data.regions
+    let res = regionsRes.map(region => {
+      let box ={}
+      box.leftCol = region.region_info.bounding_box.left_col * width
+      box.topRow = region.region_info.bounding_box.top_row * height
+      box.rightCol = width -(region.region_info.bounding_box.right_col * width)
+      box.bottomRow =  height -(region.region_info.bounding_box.bottom_row * height)
+      return box
+    }) 
+      
+    return res 
   }
 
-  displayFaceBox = (box) => {
-    this.setState({box: box});
+  displayFaceBox = (boxArray) => {
+    this.setState({boxArray: boxArray});
   }
 
   onInputChange = (event) => {
@@ -140,7 +144,7 @@ class App extends Component {
   }
 
   render() {
-    const {isSignedIn, imgURL, route, box} = this.state;
+    const {isSignedIn, imgURL, route, boxArray} = this.state;
     return (
       <div className="App">
         <Particles className='particles'
@@ -159,7 +163,7 @@ class App extends Component {
               onInputChange={this.onInputChange} 
               onImageSubmit={this.onImageSubmit}
             />
-            <FaceRecognition imgURL={imgURL} box={box}/>
+            <FaceRecognition imgURL={imgURL} boxArray={boxArray}/>
           </div>
           : (
             route === 'signin'
